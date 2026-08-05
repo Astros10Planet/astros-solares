@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturno</title>
+    <link rel="stylesheet" href="/style/saturno.css">
+</head>
+<body>
+
+    <main class="saturno-container">
+        
+        <header class="saturno-header">
+            <h1>SATURNO</h1>
+            <p class="subtitulo">O Senhor dos Anéis</p>
+             <a href="/index.html" class="btn-voltar">
+        Voltar
+    </a>
+        </header>
+
+        <section class="painel-acoes">
+            <button id="btnAbrirDescricao" class="card-btn">
+                <span class="card-titulo">DESCRIÇÃO</span>
+                <span class="card-subtext">Características e estrutura do gigante de gás</span>
+            </button>
+
+            <button id="btnAbrirHistoria" class="card-btn">
+                <span class="card-titulo">HISTÓRIA</span>
+                <span class="card-subtext">Da antiguidade às missões Cassini e Voyager</span>
+            </button>
+        </section>
+
+    </main>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <aside id="modalDescricao" class="drawer-modal">
+        <div class="drawer-header">
+            <span class="drawer-categoria">EXPLORAÇÃO // 01</span>
+            <button class="btn-fechar">&times;</button>
+        </div>
+        <div class="drawer-body">
+            <h2>Visão Geral</h2>
+            <div class="divisor-ouro"></div>
+            <p>Saturno é o sexto planeta a partir do Sol e o segundo maior do Sistema Solar. É um gigante gasoso composto predominantemente por hidrogênio e hélio.</p>
+            <p>Seu sistema de anéis é o mais extenso e impressionante do sistema solar, composto por bilhões de pedaços de gelo, poeira e rocha espacial.</p>
+        </div>
+    </aside>
+
+    <aside id="modalHistoria" class="drawer-modal">
+        <div class="drawer-header">
+            <span class="drawer-categoria">EXPLORAÇÃO // 02</span>
+            <button class="btn-fechar">&times;</button>
+        </div>
+        <div class="drawer-body">
+            <h2>Origem & Descoberta</h2>
+            <div class="divisor-ouro"></div>
+            <p>Na mitologia romana, Saturno era o deus da agricultura e do tempo. Observado desde a antiguidade a olho nu, foi Galileu Galilei quem viu seus anéis pela primeira vez em 1610, embora achasse que fossem "luas ao lado do planeta".</p>
+            <p>A sonda Cassini-Huygens revolucionou nossa compreensão sobre o planeta e suas luas entre os anos de 2004 e 2017.</p>
+        </div>
+    </aside>
+
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnHistoria = document.getElementById('btnAbrirHistoria');
+        
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalHistoria = document.getElementById('modalHistoria');
+        const overlay = document.getElementById('modalOverlay');
+        const botoesFechar = document.querySelectorAll('.btn-fechar');
+
+        function abrirDrawer(drawer) {
+            overlay.classList.add('ativo');
+            drawer.classList.add('ativo');
+        }
+
+        function fecharTodos() {
+            overlay.classList.remove('ativo');
+            document.querySelectorAll('.drawer-modal').forEach(d => d.classList.remove('ativo'));
+        }
+
+        btnDescricao.addEventListener('click', () => abrirDrawer(modalDescricao));
+        btnHistoria.addEventListener('click', () => abrirDrawer(modalHistoria));
+
+        botoesFechar.forEach(btn => btn.addEventListener('click', fecharTodos));
+        overlay.addEventListener('click', fecharTodos);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') fecharTodos();
+        });
+    </script>
+</body>
+</html>
