@@ -6,85 +6,141 @@
 }
 
 :root{
-    --vermelho:#c38f2e;
-    --texto:#ffffff;
+    --vermelho:#660000;
+    --texto:#950b0b;
 }
 
 body{
-    background-image: url('https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/SCI_011_03_MARS_180611_1280x720_1253052995972.webp?w=760&h=428');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color:white
+    background-image:url('https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/SCI_011_03_MARS_180611_1280x720_1253052995972.webp?w=760&h=428');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+    color:var(--texto);
 }
 
-header{
-    width:100%;
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background: transparent;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
-
-header{
-    width:100%;
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background: transparent;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
+/* Botão voltar */
 
 .btn-voltar{
+    position:absolute;
+    top:20px;
+    left:20px;
     text-decoration:none;
-    background:transparent;
-    color:#930202;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
+    color:white;
+    border:2px solid rgb(79,0,0);
+    padding:12px 28px;
+    border-radius:40px;
     transition:.3s;
 }
 
-.btn-mitologia{
-    background:var(--amarelo2);
-    color:#ffffff;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
+.btn-voltar:hover{
+    background:rgb(131,8,8);
 }
 
+/* Área principal */
 
-.btn-planeta{
-    background:var(--amarelo2);
-    color:#ffffff;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
-   
-}
-
-.container{
-    width:100%;
-    min-height:85vh;
+.principal{
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:70px;
-    padding:50px 8%;
-    flex-wrap:wrap;
 }
 
-.ilustracao{
-    flex:1;
+.banner-conteudo{
+    text-align:center;
+}
+
+.banner-conteudo h1{
+    font-size:70px;
+    color:white;
+}
+
+.linha-azul-lozangulo{
+    width:120px;
+    height:4px;
+    background:#fff;
+    margin:15px auto;
+}
+
+/* Botões */
+
+.nav-botoes{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
     display:flex;
+    gap:20px;
+}
+
+.btn-pilula{
+    padding:16px 28px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#660000,#a30000);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-pilula:hover{
+    transform:translateY(-5px);
+    background:linear-gradient(135deg,#8a0000,#d10000);
+}
+
+/* Modal */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
     justify-content:center;
     align-items:center;
-    min-width:300px;
+    z-index:1000;
 }
 
-.ilustracao img{
-    width:420px;
-    max-width:100%;
+.modal.ativo{
+    display:flex;
+}
+
+.modal-conteudo{
+    background:white;
+    color:black;
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:12px;
+    position:relative;
+    animation:aparecer .3s ease;
+}
+
+.modal-conteudo h2{
+    margin-bottom:15px;
+    color:#660000;
+}
+
+.modal-conteudo p{
+    line-height:1.6;
+}
+
+.fechar{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }

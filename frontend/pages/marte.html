@@ -1,28 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/marte.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Marte</title>
+    <link rel="stylesheet" href="/style/marte.css">
 </head>
 <body>
-    
-<header>
     <a href="/index.html" class="btn-voltar">
         Voltar
     </a>
     
-</header>
+    <nav class="nav-botoes">
+        <button id="btnAbrirDescricao" class="btn-pilula">
+            <span>Marte na Mitologia</span>
+        </button>
+        <button id="btnAbrirHistoria" class="btn-pilula">
+            <span>Planeta Marte</span>
+        </button>
+    </nav>
 
-<div class="container">
-    <div class="modal1">
-        <button class="btn-mitologia">Marte na Mitologia</button>
-        <button class="btn-planeta">Planeta Marte</button>
+    <main class="principal">
+        <section class="banner">
+            <div class="banner-conteudo">
+                <h1>Marte</h1>
+                <div class="linha-azul-lozangulo"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Descrição -->
+    <div id="modalDescricao" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Marte na Mitologia</h2>
+            <p>O planeta Marte recebeu esse nome dos antigos romanos por causa de sua aparência avermelhada,
+            que lembrava a cor do sangue e da violência associados ao deus da guerra.</p>
+        </div>
     </div>
-</div>
 
-<script src="/script/marte.js"></script>
+    <!-- Modal História -->
+    <div id="modalHistoria" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>História de Mercúrio</h2>
+            <p>Marte é o quarto planeta a partir do Sol e é conhecido como o Planeta Vermelho.
+                    Suas rochas, solo e atmosfera possuem uma tonalidade avermelhada devido à presença
+                    de óxido de ferro. Essa característica é observada desde a Antiguidade, motivo pelo
+                    qual os romanos deram ao planeta o nome de seu deus da guerra.</p>
+        </div>
+    </div>
+
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnHistoria = document.getElementById('btnAbrirHistoria');
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalHistoria = document.getElementById('modalHistoria');
+        const botoesFechar = document.querySelectorAll('.fechar');
+
+        function abrirModal(modal) { modal.classList.add('ativo'); }
+        function fecharModal(modal) { modal.classList.remove('ativo'); }
+
+        btnDescricao.addEventListener('click', () => abrirModal(modalDescricao));
+        btnHistoria.addEventListener('click', () => abrirModal(modalHistoria));
+
+        botoesFechar.forEach((btn) => {
+            btn.addEventListener('click', (e) => fecharModal(e.target.closest('.modal')));
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) fecharModal(e.target);
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modalAtivo = document.querySelector('.modal.ativo');
+                if (modalAtivo) fecharModal(modalAtivo);
+            }
+        });
+    </script>
 </body>
 </html>
