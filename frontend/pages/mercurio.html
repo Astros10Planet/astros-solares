@@ -1,28 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercurio</title>
+    <title>Mercúrio</title>
     <link rel="stylesheet" href="/style/mercurio.css">
 </head>
 <body>
-    <section class="banner">
-        <div class="banner-conteudo">
-            <h1>Mercurio</h1>
-            <div class="linha-azul-lozangulo"></div>
-        </div>
-    </section>
-    <section class="acoes-container">
-        <button id="btnAbrirDescricao" class="btn-adicionar">
-            DESCRIÇÃO
+    <a href="/index.html" class="btn-voltar">
+        Voltar
+    </a>
+    
+    <nav class="nav-botoes">
+        <button id="btnAbrirDescricao" class="btn-pilula">
+            <span>Descrição</span>
         </button>
-    </section>
+        <button id="btnAbrirHistoria" class="btn-pilula">
+            <span>História</span>
+        </button>
+    </nav>
 
-    <section class="acoes-container">
-        <button id="btnAbrirHistoria" class="btn-adicionar">
-            HISTÓRIA
-        </button>
-    </section>
+    <main class="principal">
+        <section class="banner">
+            <div class="banner-conteudo">
+                <h1>Mercúrio</h1>
+                <div class="linha-azul-lozangulo"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Descrição -->
+    <div id="modalDescricao" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Descrição de Mercúrio</h2>
+            <p>Mercúrio é o menor planeta do Sistema Solar e o mais próximo do Sol. Sua superfície é coberta por crateras de impacto semelhantes às da Lua.</p>
+        </div>
+    </div>
+
+    <!-- Modal História -->
+    <div id="modalHistoria" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>História de Mercúrio</h2>
+            <p>Conhecido desde a antiguidade por observadores sumérios e babilônicos, recebeu o nome do veloz mensageiro dos deuses na mitologia romana devido ao seu rápido movimento no céu.</p>
+        </div>
+    </div>
+
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnHistoria = document.getElementById('btnAbrirHistoria');
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalHistoria = document.getElementById('modalHistoria');
+        const botoesFechar = document.querySelectorAll('.fechar');
+
+        function abrirModal(modal) { modal.classList.add('ativo'); }
+        function fecharModal(modal) { modal.classList.remove('ativo'); }
+
+        btnDescricao.addEventListener('click', () => abrirModal(modalDescricao));
+        btnHistoria.addEventListener('click', () => abrirModal(modalHistoria));
+
+        botoesFechar.forEach((btn) => {
+            btn.addEventListener('click', (e) => fecharModal(e.target.closest('.modal')));
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) fecharModal(e.target);
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modalAtivo = document.querySelector('.modal.ativo');
+                if (modalAtivo) fecharModal(modalAtivo);
+            }
+        });
+    </script>
 </body>
 </html>
