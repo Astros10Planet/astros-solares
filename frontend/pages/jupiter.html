@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter</title>
+    <link rel="stylesheet" href="/style/jupiter.css">
+</head>
+<body>
+    <a href="/index.html" class="btn-voltar">
+        Voltar
+    </a>
+    
+    <nav class="nav-botoes">
+        <button id="btnAbrirDescricao" class="btn-pilula">
+            <span>Jupiter na Mitologia</span>
+        </button>
+        <button id="btnAbrirHistoria" class="btn-pilula">
+            <span>Planeta Jupiter</span>
+        </button>
+    </nav>
+
+    <main class="principal">
+        <section class="banner">
+            <div class="banner-conteudo">
+                <h1>Jupiter</h1>
+                <div class="linha-azul-lozangulo"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Descrição -->
+    <div id="modalDescricao" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Jupiter na Mitologia</h2>
+            <p>O planeta Júpiter recebeu esse nome em homenagem ao deus supremo da mitologia romana, que equivale a Zeus na mitologia grega. Por ser o maior planeta do sistema solar, o nome combina perfeitamente com a figura do rei dos deuses, senhor do céu, do trovão e da luz.</p>
+        </div>
+    </div>
+
+    <!-- Modal História -->
+    <div id="modalHistoria" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>História de Jupiter</h2>
+            <p>é o maior planeta do Sistema Solar. Ele é um gigante gasoso situado a cerca de 778 milhões de quilômetros do Sol. Sua massa é 318 vezes maior que a da Terra, e ele se destaca por sua rotação rápida de 10 horas, pela famosa Grande Mancha Vermelha e por dezenas de luas.</p>
+        </div>
+    </div>
+
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnHistoria = document.getElementById('btnAbrirHistoria');
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalHistoria = document.getElementById('modalHistoria');
+        const botoesFechar = document.querySelectorAll('.fechar');
+
+        function abrirModal(modal) { modal.classList.add('ativo'); }
+        function fecharModal(modal) { modal.classList.remove('ativo'); }
+
+        btnDescricao.addEventListener('click', () => abrirModal(modalDescricao));
+        btnHistoria.addEventListener('click', () => abrirModal(modalHistoria));
+
+        botoesFechar.forEach((btn) => {
+            btn.addEventListener('click', (e) => fecharModal(e.target.closest('.modal')));
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) fecharModal(e.target);
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modalAtivo = document.querySelector('.modal.ativo');
+                if (modalAtivo) fecharModal(modalAtivo);
+            }
+        });
+    </script>
+</body>
+</html>

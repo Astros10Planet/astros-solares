@@ -1,0 +1,468 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background-image:url('https://starwalk.space/gallery/images/jupiter-appearance-3/1920x1080.jpg');
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+
+/* camada escura para melhorar leitura */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.55),
+        transparent,
+        rgba(0,0,0,.4)
+    );
+
+    z-index:-1;
+
+}
+
+
+
+/* VOLTAR */
+
+.btn-voltar{
+
+    position:fixed;
+
+    top:35px;
+
+    left:35px;
+
+
+    padding:13px 32px;
+
+
+    text-decoration:none;
+
+    color:white;
+
+
+    border-radius:6px;
+
+
+    background:#111;
+
+
+    border:1px solid #0bd6f5;
+
+
+    font-weight:600;
+
+
+    letter-spacing:1px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-voltar:hover{
+
+    background:#209aca;
+
+    color:#111;
+
+
+}
+
+
+
+/* TITULO */
+
+
+.principal{
+
+    height:100vh;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+}
+
+
+
+.banner-conteudo{
+
+    text-align:center;
+
+}
+
+
+
+.banner-conteudo h1{
+
+
+    font-size:120px;
+
+
+    font-weight:800;
+
+
+    letter-spacing:25px;
+
+
+    color:#fff;
+
+
+    text-transform:uppercase;
+
+
+    text-shadow:
+
+    0 0 20px rgba(46, 101, 137, 0.8),
+
+    0 10px 40px black;
+
+
+}
+
+
+
+.linha-azul-lozangulo{
+
+    width:250px;
+
+    height:3px;
+
+
+    margin:25px auto;
+
+
+    background:#577cb8;
+
+}
+
+
+
+/* BOTÕES */
+
+
+.nav-botoes{
+
+    position:fixed;
+
+    right:45px;
+
+    top:auto;
+
+    bottom:70px;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    gap:20px;
+
+}
+
+
+
+
+/* NOVO ESTILO DE BOTÃO */
+
+
+.btn-pilula{
+
+
+    width:280px;
+
+    height:75px;
+
+
+    background:
+
+    linear-gradient(
+        120deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.03)
+    );
+
+
+    border:1px solid rgba(255,255,255,.35);
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    text-align:left;
+
+
+    padding-left:35px;
+
+
+    border-radius:0 40px 40px 0;
+
+
+    font-size:17px;
+
+
+    font-weight:700;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    backdrop-filter:blur(10px);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.btn-pilula::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:0;
+
+    top:0;
+
+
+    width:8px;
+
+    height:100%;
+
+
+    background:#24788d;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.btn-pilula:hover::after{
+
+    width:100%;
+
+    opacity:.15;
+
+}
+
+
+
+.btn-pilula:hover{
+
+
+    transform:translateX(-15px);
+
+
+    border-color:#24f7fb;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(245,158,11,.4);
+
+
+}
+
+
+
+.btn-pilula span{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+/* MODAIS */
+
+
+.modal{
+
+
+    display:none;
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    background:
+
+    rgba(0,0,0,.85);
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    z-index:100;
+
+
+}
+
+
+
+.modal.ativo{
+
+    display:flex;
+
+}
+
+
+
+.modal-conteudo{
+
+
+    width:550px;
+
+
+    padding:45px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #18110b,
+        #124a4b
+    );
+
+
+    border-radius:5px;
+
+
+    border-left:6px solid #0bc6f5;
+
+
+    box-shadow:
+
+    0 30px 80px black;
+
+
+    position:relative;
+
+
+}
+
+
+
+.modal-conteudo h2{
+
+
+    color:#4baabd;
+
+
+    font-size:32px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.modal-conteudo p{
+
+
+    color:#eee;
+
+
+    font-size:17px;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+/* fechar */
+
+
+.fechar{
+
+
+    position:absolute;
+
+
+    top:15px;
+
+    right:25px;
+
+
+    font-size:35px;
+
+
+    cursor:pointer;
+
+
+    color:#3da2b6;
+
+
+}
+
+
+.fechar:hover{
+
+    color:white;
+
+}
