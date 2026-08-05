@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urano</title>
+    <link rel="stylesheet" href="/style/urano.css">
+</head>
+<body>
+
+    <header class="topo-fixo">
+        <div class="brand">
+            <h1>URANO</h1>
+        </div>
+         <a href="/index.html" class="btn-voltar">
+        Voltar
+    </a>
+    </header>
+
+    <main class="hero-container">
+        <div class="glow-orb"></div>
+        
+        <p class="subtitulo">O Gigante de Gelo do Sistema Solar</p>
+
+        <!-- SEÇÃO DE BOTÕES INTERATIVOS -->
+        <section class="botoes-wrapper">
+            <button id="btnAbrirDescricao" class="btn-frost">
+                <span class="btn-icon">❄️</span>
+                <span class="btn-texto">DESCRIÇÃO</span>
+            </button>
+
+            <button id="btnAbrirHistoria" class="btn-frost">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-texto">HISTÓRIA</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- OVERLAY DE FUNDO PARA O BOTTOM SHEET -->
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- 2. MODAIS MOVIDOS PARA O FUNDO DA TELA (BOTTOM SHEET) -->
+    <!-- MODAL 1: DESCRIÇÃO -->
+    <div id="modalDescricao" class="bottom-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-card">
+            <button class="fechar-btn">&times;</button>
+            <span class="modal-tag">DADOS TÉCNICOS</span>
+            <h2>Descrição de Urano</h2>
+            <div class="divisor-linha"></div>
+            <p>Urano é o terceiro maior planeta do Sistema Solar. Sua atmosfera é composta principalmente de hidrogênio, hélio e metano — gás responsável por sua impressionante cor azul-esverdeada.</p>
+            <p>Com temperaturas que chegam a -224 °C, possui uma rotação única: o planeta orbita o Sol praticamente "deitado", com uma inclinação axial de 98 graus.</p>
+        </div>
+    </div>
+
+    <!-- MODAL 2: HISTÓRIA -->
+    <div id="modalHistoria" class="bottom-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-card">
+            <button class="fechar-btn">&times;</button>
+            <span class="modal-tag">ARQUIVO HISTÓRICO</span>
+            <h2>História & Descoberta</h2>
+            <div class="divisor-linha"></div>
+            <p>Descoberto em 13 de março de 1781 pelo astrônomo William Herschel, foi o primeiro planeta encontrado com o auxílio de um telescópio moderno.</p>
+            <p>Até hoje, a única espaçonave que visitou Urano foi a <em>Voyager 2</em> da NASA, em janeiro de 1986, capturando as imagens mais detalhadas que temos do seu sistema de anéis e luas geladas.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE CONTROLE DAS MODAIS -->
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnHistoria = document.getElementById('btnAbrirHistoria');
+        
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalHistoria = document.getElementById('modalHistoria');
+        const overlay = document.getElementById('modalOverlay');
+        const botoesFechar = document.querySelectorAll('.fechar-btn');
+
+        function abrirModal(modal) {
+            overlay.classList.add('visivel');
+            modal.classList.add('visivel');
+        }
+
+        function fecharModais() {
+            overlay.classList.remove('visivel');
+            document.querySelectorAll('.bottom-sheet').forEach(m => m.classList.remove('visivel'));
+        }
+
+        btnDescricao.addEventListener('click', () => abrirModal(modalDescricao));
+        btnHistoria.addEventListener('click', () => abrirModal(modalHistoria));
+
+        botoesFechar.forEach(btn => btn.addEventListener('click', fecharModais));
+        overlay.addEventListener('click', fecharModais);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') fecharModais();
+        });
+    </script>
+</body>
+</html>
