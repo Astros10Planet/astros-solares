@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Lua</title>
+    <link rel="stylesheet" href="/style/lua.css">
+</head>
+
+<body class="fundo-lua">
+
+    <div class="overlay-fundo"></div>
+
+    <main class="lunar-hero">
+        <div class="conteudo-box">
+            <span class="sub-tag">SATÉLITE NATURAL</span>
+            <h1>LUA</h1>
+            <p class="subtitulo">A presença prateada na nossa noite</p>
+
+            <div class="botoes-lua">
+                <button id="btnAbrirDescricao" class="btn-lunar">DESCRIÇÃO
+                </button>
+                <button id="btnAbrirCuriosidades" class="btn-lunar">CURIOSIDADES
+                </button><a href="/index.html" class="btn-voltar">
+                    Voltar
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalDescricao" class="modal-fullscreen">
+        <button class="btn-fechar">&times;</button>
+        <div class="modal-conteudo-minimal">
+            <span class="modal-numero">01</span>
+            <h2>Sobre a Lua</h2>
+            <div class="linha-prata"></div>
+            <p>A Lua é o único satélite natural da Terra e o quinto maior do Sistema Solar. Ela orbita nosso planeta a
+                uma distância média de aproximadamente 384.400 quilômetros.</p>
+            <p>Sua influência na Terra é gigantesca: a gravidade da Lua causa o movimento das marés nos oceanos e ajuda
+                a estabilizar o eixo de rotação do nosso planeta.</p>
+        </div>
+    </div>
+
+    <div id="modalCuriosidades" class="modal-fullscreen">
+        <button class="btn-fechar">&times;</button>
+        <div class="modal-conteudo-minimal">
+            <span class="modal-numero">02</span>
+            <h2>Fatos & Curiosidades</h2>
+            <div class="linha-prata"></div>
+            <p>Como a Lua não possui atmosfera, não há vento ou chuva lá. Por causa disso, as pegadas deixadas pelos
+                astronautas da missão Apollo continuam intactas na poeira lunar até hoje!</p>
+            <p>Além disso, vemos sempre a mesma face da Lua daqui da Terra por conta de um fenômeno chamado rotação
+                sincronizada.</p>
+        </div>
+    </div>
+
+    <script>
+        const btnDescricao = document.getElementById('btnAbrirDescricao');
+        const btnCuriosidades = document.getElementById('btnAbrirCuriosidades');
+        const modalDescricao = document.getElementById('modalDescricao');
+        const modalCuriosidades = document.getElementById('modalCuriosidades');
+        const botoesFechar = document.querySelectorAll('.btn-fechar');
+
+        function abrir(modal) {
+            modal.classList.add('ativo');
+        }
+
+        function fechar() {
+            document.querySelectorAll('.modal-fullscreen').forEach(m => m.classList.remove('ativo'));
+        }
+
+        btnDescricao.addEventListener('click', () => abrir(modalDescricao));
+        btnCuriosidades.addEventListener('click', () => abrir(modalCuriosidades));
+
+        botoesFechar.forEach(btn => btn.addEventListener('click', fechar));
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') fechar();
+        });
+    </script>
+</body>
+
+</html>
