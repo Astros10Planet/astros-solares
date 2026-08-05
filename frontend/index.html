@@ -1,19 +1,58 @@
-<!DOCTYPE html>
+<!DOCTYPE <html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planetas e Astros</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body>
     <header class="cabecalho">
         <h1 class="titulo">Os 10 Melhores Planetas e Astros do Sistema Solar</h1>
-        <p class="texto1">G. Melos, R. Andrade e M. Benini</p>
     </header>
     <hr class="linhaC">
-    <main class="principal">
-        
+    <main id="explorar">
+        <section class="explorar"> <span class="subtitulo">Explorar</span>
+            <div class="linha-pequena"></div>
+            <div class="cards">
+                <article class="card" onclick="abrirPagina('../pages/mercurio.html')"> <img src="/img/mercur.jpg"
+                        alt="mercurio">
+                    <div class="card-conteudo">
+                        <h3>Mercúrio</h3>
+                    </div>
+                </article>
+                <article class="card" onclick="abrirPagina('../pages/venus.html')"> <img src="" alt="venus">
+                    <div class="card-conteudo">
+                        <h3>Vênus</h3>
+                </article>
+                <article class="card" onclick="abrirPagina('../pages/terra.html')"> <img src="" alt="Terra">
+                    <div class="card-conteudo">
+                        <h3>Terra</h3>
+                    </div>
+                </article>
+                <article class="card" onclick="abrirPagina('../pages/marte.html')"> <img src="" alt="marte">
+                    <div class="card-conteudo">
+                        <h3>Marte</h3>
+                    </div>
+                </article>
+                <article class="card" onclick="abrirPagina('../pages/saturno.html')"> <img src="" alt="saturno">
+                    <div class="card-conteudo">
+                        <h3>Saturno</h3>
+                    </div>
+                </article>
+                <article class="card" onclick="abrirPagina('../pages/urano.html')"> <img src="" alt="urano">
+                    <div class="card-conteudo">
+                        <h3>Urano</h3>
+                    </div>
+                </article>
+            </div>
     </main>
+    <hr>
+    <footer class="rodape">
+        <p class="texto1">G. Melos, R. Andrade e M. Benini</p>
+    </footer>
 </body>
+
 </html>
