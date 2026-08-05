@@ -1,0 +1,91 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --amarelo:#caac28;
+    --amarelo2:#c38f2e;
+    --texto:#ffffff;
+}
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGxhbm8lMjBkZSUyMGZ1bmRvJTIwZXNwYSVDMyVBN298ZW58MHx8MHx8fDA%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white
+}
+
+header{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: transparent;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+header{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: transparent;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.btn-voltar{
+    text-decoration:none;
+    background:var(--amarelo);
+    color:#ffffff;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-mitologia{
+    background:var(--amarelo2);
+    color:#ffffff;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+
+.btn-planeta{
+    background:var(--amarelo2);
+    color:#ffffff;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+   
+}
+
+.container{
+    width:100%;
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
+    padding:50px 8%;
+    flex-wrap:wrap;
+}
+
+.ilustracao{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:300px;
+}
+
+.ilustracao img{
+    width:420px;
+    max-width:100%;
+}

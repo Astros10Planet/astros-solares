@@ -1,0 +1,90 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --vermelho:#c38f2e;
+    --texto:#ffffff;
+}
+
+body{
+    background-image: url('https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/SCI_011_03_MARS_180611_1280x720_1253052995972.webp?w=760&h=428');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white
+}
+
+header{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: transparent;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+header{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: transparent;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.btn-voltar{
+    text-decoration:none;
+    background:transparent;
+    color:#930202;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-mitologia{
+    background:var(--amarelo2);
+    color:#ffffff;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+
+.btn-planeta{
+    background:var(--amarelo2);
+    color:#ffffff;
+    padding:12px 22px;
+    border-radius:50px;
+    font-weight:600;
+   
+}
+
+.container{
+    width:100%;
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
+    padding:50px 8%;
+    flex-wrap:wrap;
+}
+
+.ilustracao{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:300px;
+}
+
+.ilustracao img{
+    width:420px;
+    max-width:100%;
+}
