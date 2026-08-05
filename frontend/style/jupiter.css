@@ -288,14 +288,6 @@ body::before{
 
 
 
-.btn-pilula:hover::after{
-
-    width:100%;
-
-    opacity:.15;
-
-}
-
 
 
 .btn-pilula:hover{

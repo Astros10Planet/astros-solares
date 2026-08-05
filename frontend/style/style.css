@@ -23,6 +23,8 @@ body {
     background: radial-gradient(circle, #1b1f38 0%, #0b0d17 100%);
     background-size: cover;
     background-position: center;
+    font-family:monospace, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
 }
 
 hr, .linhaC {
