@@ -1,91 +1,135 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* ===================================
+   RESET & VARIÁVEIS
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-:root{
-    --amarelo:#caac28;
-    --amarelo2:#c38f2e;
-    --texto:#ffffff;
+:root {
+    --bg-color: #0b0b12;
+    --card-bg: rgba(22, 22, 35, 0.75);
+    --accent-color: #ffb703;
+    --accent-hover: #fb8500;
+    --text-color: #e0e0e0;
+    --text-title: #ffffff;
+    --font-title: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
 }
 
-body{
-    background-image: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGxhbm8lMjBkZSUyMGZ1bmRvJTIwZXNwYSVDMyVBN298ZW58MHx8MHx8fDA%3D');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color:white
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-image: radial-gradient(circle at 50% 20%, #201a35 0%, #0b0b12 80%);
 }
 
-header{
-    width:100%;
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* ===================================
+   HEADER & BOTÃO VOLTAR
+   =================================== */
+header {
+    width: 100%;
+    max-width: 900px;
+    padding: 10px 0;
+}
+
+.btn-voltar {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid var(--accent-color);
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.4);
+}
+
+/* ===================================
+   CONTAINER PRINCIPAL
+   =================================== */
+.container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+/* Imagem de Vênus */
+.ilustracao img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgba(255, 183, 3, 0.25);
+    transition: transform 0.5s ease;
+}
+
+.ilustracao img:hover {
+    transform: scale(1.03);
+}
+
+/* Título */
+.banner-conteudo h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--text-title);
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ===================================
+   Navegação / Botões
+   =================================== */
+.nav-botoes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-pilula {
     background: transparent;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-header{
-    width:100%;
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background: transparent;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
+.btn-pilula:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.2);
 }
 
-.btn-voltar{
-    text-decoration:none;
-    background:var(--amarelo);
-    color:#ffffff;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn-mitologia{
-    background:var(--amarelo2);
-    color:#ffffff;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
-}
-
-
-.btn-planeta{
-    background:var(--amarelo2);
-    color:#ffffff;
-    padding:12px 22px;
-    border-radius:50px;
-    font-weight:600;
-   
-}
-
-.container{
-    width:100%;
-    min-height:85vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:70px;
-    padding:50px 8%;
-    flex-wrap:wrap;
-}
-
-.ilustracao{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-width:300px;
-}
-
-.ilustracao img{
-    width:420px;
-    max-width:100%;
-}
+/* ===================================
+   MODAL
+   =================================== */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-

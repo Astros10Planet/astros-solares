@@ -25,7 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-/* --- CONTAINER PRINCIPAL --- */
 .saturno-container,
 .saturno-header {
   display: flex;
@@ -40,7 +39,6 @@ body {
   gap: 45px;
 }
 
-/* --- HEADER E TÍTULOS --- */
 .saturno-header h1 {
   font-size: 4rem;
   font-weight: 400;
@@ -56,14 +54,6 @@ body {
   color: #d97706;
   text-transform: uppercase;
   margin-top: 5px;
-}
-
-/* --- PAINEL DE BOTÕES (CARDS) --- */
-.painel-acoes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  width: 100%;
 }
 
 .card-btn {
@@ -100,7 +90,6 @@ body {
   line-height: 1.4;
 }
 
-/* --- DRAWER / MODAL --- */
 .modal-overlay.ativo {
   opacity: 1;
   pointer-events: all;
@@ -155,7 +144,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* --- BOTÃO VOLTAR --- */
 .btn-voltar {
   text-decoration: none;
   background: var(--cor-amarelo);
