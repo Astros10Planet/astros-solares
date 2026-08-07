@@ -1,460 +1,175 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+:root {
+  --bg-escuro: #0f1115;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --cor-destaque: #0bd6f5;
+  --cor-texto: #ffffff;
+  --cor-subtexto: #a0a5b5;
+  --borda-suave: rgba(255, 255, 255, 0.1);
+  --transicao: all 0.2s ease;
 }
 
-
-body{
-
-    min-height:100vh;
-
-    background-image:url('https://starwalk.space/gallery/images/jupiter-appearance-3/1920x1080.jpg');
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    overflow:hidden;
-
-    color:white;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-
-/* camada escura para melhorar leitura */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.55),
-        transparent,
-        rgba(0,0,0,.4)
-    );
-
-    z-index:-1;
-
+body {
+  min-height: 100vh;
+  background-color: var(--bg-escuro);
+  background-image: url('https://starwalk.space/gallery/images/jupiter-appearance-3/1920x1080.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  color: var(--cor-texto);
 }
 
-
-
-/* VOLTAR */
-
-.btn-voltar{
-
-    position:fixed;
-
-    top:35px;
-
-    left:35px;
-
-
-    padding:13px 32px;
-
-
-    text-decoration:none;
-
-    color:white;
-
-
-    border-radius:6px;
-
-
-    background:#111;
-
-
-    border:1px solid #0bd6f5;
-
-
-    font-weight:600;
-
-
-    letter-spacing:1px;
-
-
-    transition:.3s;
-
-
+/* Overlay escuro mais suave e uniforme */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 17, 21, 0.75);
+  z-index: -1;
 }
 
-
-
-.btn-voltar:hover{
-
-    background:#209aca;
-
-    color:#111;
-
-
+/* --- BOTÃO VOLTAR (Clean) --- */
+.btn-voltar {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: var(--cor-texto);
+  background: var(--bg-card);
+  border: 1px solid var(--borda-suave);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: var(--transicao);
 }
 
-
-
-/* TITULO */
-
-
-.principal{
-
-    height:100vh;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
+.btn-voltar:hover {
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
 }
 
-
-
-.banner-conteudo{
-
-    text-align:center;
-
+/* --- SEÇÃO PRINCIPAL --- */
+.principal {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-.banner-conteudo h1{
-
-
-    font-size:120px;
-
-
-    font-weight:800;
-
-
-    letter-spacing:25px;
-
-
-    color:#fff;
-
-
-    text-transform:uppercase;
-
-
-    text-shadow:
-
-    0 0 20px rgba(46, 101, 137, 0.8),
-
-    0 10px 40px black;
-
-
+.banner-conteudo {
+  text-align: center;
 }
 
-
-
-.linha-azul-lozangulo{
-
-    width:250px;
-
-    height:3px;
-
-
-    margin:25px auto;
-
-
-    background:#577cb8;
-
+.banner-conteudo h1 {
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  color: var(--cor-texto);
 }
 
-
-
-/* BOTÕES */
-
-
-.nav-botoes{
-
-    position:fixed;
-
-    right:45px;
-
-    top:auto;
-
-    bottom:70px;
-
-
-    display:flex;
-
-    flex-direction:column;
-
-
-    gap:20px;
-
+.linha-azul-lozangulo {
+  width: 60px;
+  height: 2px;
+  margin: 20px auto;
+  background: var(--cor-destaque);
+  border-radius: 2px;
 }
 
-
-
-
-/* NOVO ESTILO DE BOTÃO */
-
-
-.btn-pilula{
-
-
-    width:280px;
-
-    height:75px;
-
-
-    background:
-
-    linear-gradient(
-        120deg,
-        rgba(255,255,255,.15),
-        rgba(255,255,255,.03)
-    );
-
-
-    border:1px solid rgba(255,255,255,.35);
-
-
-    color:white;
-
-
-    cursor:pointer;
-
-
-    text-align:left;
-
-
-    padding-left:35px;
-
-
-    border-radius:0 40px 40px 0;
-
-
-    font-size:17px;
-
-
-    font-weight:700;
-
-
-    position:relative;
-
-
-    overflow:hidden;
-
-
-    backdrop-filter:blur(10px);
-
-
-    transition:.4s;
-
-
+/* --- NAVEGAÇÃO / BOTÕES (Estilo Pílula Minimalista) --- */
+.nav-botoes {
+  position: fixed;
+  right: 40px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-
-
-.btn-pilula::after{
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    left:0;
-
-    top:0;
-
-
-    width:8px;
-
-    height:100%;
-
-
-    background:#24788d;
-
-
-    transition:.4s;
-
-
+.btn-pilula {
+  width: 240px;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--borda-suave);
+  border-radius: 50px; /* Pílula perfeita */
+  color: var(--cor-texto);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: var(--transicao);
 }
 
-
-
-
-
-.btn-pilula:hover{
-
-
-    transform:translateX(-15px);
-
-
-    border-color:#24f7fb;
-
-
-    box-shadow:
-
-    0 15px 40px rgba(245,158,11,.4);
-
-
+/* Removemos as linhas laterais em ::after para deixar mais limpo */
+.btn-pilula::after {
+  display: none; 
 }
 
-
-
-.btn-pilula span{
-
-    position:relative;
-
-    z-index:2;
-
+.btn-pilula:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--cor-destaque);
+  transform: translateX(-6px);
+  box-shadow: none; /* Removido brilho forte */
 }
 
-
-
-/* MODAIS */
-
-
-.modal{
-
-
-    display:none;
-
-
-    position:fixed;
-
-
-    inset:0;
-
-
-    background:
-
-    rgba(0,0,0,.85);
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    z-index:100;
-
-
+/* --- MODAIS --- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
 }
 
-
-
-.modal.ativo{
-
-    display:flex;
-
+.modal.ativo {
+  display: flex;
 }
 
-
-
-.modal-conteudo{
-
-
-    width:550px;
-
-
-    padding:45px;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #18110b,
-        #124a4b
-    );
-
-
-    border-radius:5px;
-
-
-    border-left:6px solid #0bc6f5;
-
-
-    box-shadow:
-
-    0 30px 80px black;
-
-
-    position:relative;
-
-
+.modal-conteudo {
+  position: relative;
+  width: 480px;
+  padding: 35px;
+  background: #161920;
+  border: 1px solid var(--borda-suave);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-
-
-.modal-conteudo h2{
-
-
-    color:#4baabd;
-
-
-    font-size:32px;
-
-
-    margin-bottom:20px;
-
-
+.modal-conteudo h2 {
+  color: var(--cor-texto);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-
-
-.modal-conteudo p{
-
-
-    color:#eee;
-
-
-    font-size:17px;
-
-
-    line-height:1.8;
-
-
+.modal-conteudo p {
+  color: var(--cor-subtexto);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-
-
-/* fechar */
-
-
-.fechar{
-
-
-    position:absolute;
-
-
-    top:15px;
-
-    right:25px;
-
-
-    font-size:35px;
-
-
-    cursor:pointer;
-
-
-    color:#3da2b6;
-
-
+.fechar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  color: var(--cor-subtexto);
+  cursor: pointer;
+  transition: var(--transicao);
 }
 
-
-.fechar:hover{
-
-    color:white;
-
+.fechar:hover {
+  color: var(--cor-texto);
 }

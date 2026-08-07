@@ -1,31 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/venus.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Venus</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style/venus.css">
 </head>
+
 <body>
-    
-<header>
-    <a href="/index.html" class="btn-voltar">
-        Voltar
-    </a>
-</header>
 
-<div class="container">
-    <div class="ilustracao">
-        <img src="https://content.nationalgeographic.pt/medio/2024/02/28/planeta-venus_cab4dd46_240228170348_1280x1280.jpg" alt="Venus">
-    </div>
+    <header>
+        <a href="/index.html" class="btn-voltar">
+            Voltar
+        </a>
+    </header>
 
-    <div class="modal1">
-        <button class="btn-mitologia">Vênus na Mitologia</button>
-        <button class="btn-planeta">Planeta Vênus</button>
-    </div>
-</div>
+    <div class="container">
+        <div class="ilustracao">
+            <img src="/img/venus.jpg">
+        </div>
 
+        <nav class="nav-botoes">
+            <button id="btnAbrirDescricao" class="btn-pilula">
+                <span>Venu na Mitologia</span>
+            </button>
+            <button id="btnAbrirHistoria" class="btn-pilula">
+                <span>Planeta Venus</span>
+            </button>
+        </nav>
 
+        <main class="principal">
+            <section class="banner">
+                <div class="banner-conteudo">
+                    <h1>Venus</h1>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal Descrição -->
+        <div id="modalDescricao" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar">&times;</span>
+                <h2>Venus na Mitologia</h2>
+                <p>Vênus (mitologia), a deusa romana da beleza, do amor, da fertilidade e do desejo, cuja equivalente na
+                    mitologia grega é Afrodite.</p>
+            </div>
+        </div>
+
+        <!-- Modal História -->
+        <div id="modalHistoria" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar">&times;</span>
+                <h2>História de Venus</h2>
+                <p>Vênus é o segundo planeta a partir do Sol e o mais quente do Sistema Solar, com temperaturas que
+                    atingem 475 °C. Conhecido como a "Estrela Dalva", é o objeto mais brilhante do céu depois do Sol e
+                    da Lua. Não possui luas e gira no sentido horário oposto à maioria dos planetas.</p>
+            </div>
+        </div>
+
+        <script src="../script/venus.js"></script>
 </body>
+
 </html>
